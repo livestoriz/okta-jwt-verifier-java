@@ -39,15 +39,17 @@ $(function() {
     }  
     addVersion(version, versionName);
   }
-
-  addSeparator();
+  
   // TODO: add dev version in the future
   // addVersion('development', 'Development');
   // addSeparator();
 
-  for (let ii = 0; ii < window.apiVersions.legacy.length; ii++) {
-    let version = window.apiVersions.legacy[ii];
-    addVersion(version, version + ' [Legacy]');
+  if (window.apiVersions.legacy) {
+    addSeparator();
+    for (let ii = 0; ii < window.apiVersions.legacy.length; ii++) {
+      let version = window.apiVersions.legacy[ii];
+      addVersion(version, version + ' [Legacy]');
+    }
   }
 
   $('#currentSelection').html(window.apiVersions.current + ' [Current] <span class="caret"></span>');
